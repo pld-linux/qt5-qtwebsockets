@@ -61,7 +61,7 @@ Requires:	Qt5Qml >= %{qtdeclarative_ver}
 %description -n Qt5WebSockets
 Qt5 WebSockets library provides WebSockets communication classes.
 
-%description -n Qt5WebSockets -l pl.UTF_8
+%description -n Qt5WebSockets -l pl.UTF-8
 Biblioteka Qt5 WebSockets dostarcza klasy do komunikacji przez
 WebSockets.
 
