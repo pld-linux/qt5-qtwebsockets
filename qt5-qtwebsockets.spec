@@ -10,14 +10,14 @@
 Summary:	The Qt5 WebSockets library
 Summary(pl.UTF-8):	Biblioteka Qt5 WebSockets
 Name:		qt5-%{orgname}
-Version:	5.11.1
+Version:	5.12.1
 Release:	1
 License:	LGPL v2.1 with Digia Qt LGPL Exception v1.1 or GPL v3.0
 Group:		X11/Libraries
-Source0:	http://download.qt.io/official_releases/qt/5.11/%{version}/submodules/%{orgname}-everywhere-src-%{version}.tar.xz
-# Source0-md5:	ee12e76e1190e8510fcd56e5831f26be
-Source1:	http://download.qt.io/official_releases/qt/5.11/%{version}/submodules/qttranslations-everywhere-src-%{version}.tar.xz
-# Source1-md5:	67c0dbd61c2b92552b5339d82a94b1a8
+Source0:	http://download.qt.io/official_releases/qt/5.12/%{version}/submodules/%{orgname}-everywhere-src-%{version}.tar.xz
+# Source0-md5:	a786ff278d2cb827f4738ed1c82ab291
+Source1:	http://download.qt.io/official_releases/qt/5.12/%{version}/submodules/qttranslations-everywhere-src-%{version}.tar.xz
+# Source1-md5:	045ad1eda4d3a272b24b6c60a06b313f
 URL:		http://www.qt.io/
 BuildRequires:	Qt5Core-devel >= %{qtbase_ver}
 BuildRequires:	Qt5Network-devel >= %{qtbase_ver}
@@ -157,7 +157,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} -C qttranslations-everywhere-src-%{version} install \
 	INSTALL_ROOT=$RPM_BUILD_ROOT
 # keep only qtwebsockets
-%{__rm} $RPM_BUILD_ROOT%{_datadir}/qt5/translations/{assistant,designer,linguist,qmlviewer,qt,qtbase,qtconnectivity,qtdeclarative,qtlocation,qtmultimedia,qtquickcontrols,qtquickcontrols2,qtquick1,qtserialport,qtscript,qtwebengine,qtxmlpatterns}_*.qm
+%{__rm} $RPM_BUILD_ROOT%{_datadir}/qt5/translations/{assistant,designer,linguist,qt,qtbase,qtconnectivity,qtdeclarative,qtlocation,qtmultimedia,qtquickcontrols,qtquickcontrols2,qtserialport,qtscript,qtwebengine,qtxmlpatterns}_*.qm
 %endif
 
 # useless symlinks
