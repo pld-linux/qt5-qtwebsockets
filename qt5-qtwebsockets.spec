@@ -12,18 +12,18 @@ Summary(pl.UTF-8):	Biblioteka Qt5 WebSockets
 Name:		qt5-%{orgname}
 Version:	5.15.2
 Release:	2
-License:	LGPL v2.1 with Digia Qt LGPL Exception v1.1 or GPL v3.0
+License:	LGPL v3 or GPL v2 or GPL v3 or commercial
 Group:		X11/Libraries
 Source0:	http://download.qt.io/official_releases/qt/5.15/%{version}/submodules/%{orgname}-everywhere-src-%{version}.tar.xz
 # Source0-md5:	d229bcde2f055f1bae9de009490cba31
 Source1:	http://download.qt.io/official_releases/qt/5.15/%{version}/submodules/qttranslations-everywhere-src-%{version}.tar.xz
 # Source1-md5:	9b66cdb64402e8fd9e843f8a7120abb1
-URL:		http://www.qt.io/
+URL:		https://www.qt.io/
 BuildRequires:	Qt5Core-devel >= %{qtbase_ver}
 BuildRequires:	Qt5Network-devel >= %{qtbase_ver}
 BuildRequires:	Qt5Qml-devel >= %{qtdeclarative_ver}
+# for examples
 BuildRequires:	Qt5Quick-devel >= %{qtdeclarative_ver}
-BuildRequires:	Qt5Sql-devel >= %{qtbase_ver}
 %if %{with doc}
 BuildRequires:	qt5-assistant >= %{qttools_ver}
 %endif
@@ -59,7 +59,7 @@ Summary(pl.UTF-8):	Biblioteka Qt5 WebSockets
 Group:		Libraries
 Requires:	Qt5Core >= %{qtbase_ver}
 Requires:	Qt5Network >= %{qtbase_ver}
-Requires:	Qt5Sql >= %{qtbase_ver}
+# for qml module
 Requires:	Qt5Qml >= %{qtdeclarative_ver}
 
 %description -n Qt5WebSockets
@@ -75,7 +75,6 @@ Summary(pl.UTF-8):	Biblioteka Qt5 WebSockets - pliki programistyczne
 Group:		Development/Libraries
 Requires:	Qt5Core-devel >= %{qtbase_ver}
 Requires:	Qt5Network-devel >= %{qtbase_ver}
-Requires:	Qt5Sql-devel >= %{qtbase_ver}
 Requires:	Qt5WebSockets = %{version}-%{release}
 
 %description -n Qt5WebSockets-devel
@@ -89,9 +88,7 @@ Summary:	Qt5 WebSockets documentation in HTML format
 Summary(pl.UTF-8):	Dokumentacja do biblioteki Qt5 WebSockets w formacie HTML
 Group:		Documentation
 Requires:	qt5-doc-common >= %{qtbase_ver}
-%if "%{_rpmversion}" >= "5"
-BuildArch:	noarch
-%endif
+%{?noarchpackage}
 
 %description doc
 Qt5 WebSockets documentation in HTML format.
@@ -104,9 +101,7 @@ Summary:	Qt5 WebSockets documentation in QCH format
 Summary(pl.UTF-8):	Dokumentacja do biblioteki Qt5 WebSockets w formacie QCH
 Group:		Documentation
 Requires:	qt5-doc-common >= %{qtbase_ver}
-%if "%{_rpmversion}" >= "5"
-BuildArch:	noarch
-%endif
+%{?noarchpackage}
 
 %description doc-qch
 Qt5 WebSockets documentation in QCH format.
@@ -118,9 +113,7 @@ Dokumentacja do biblioteki Qt5 WebSockets w formacie QCH.
 Summary:	Qt5 WebSockets examples
 Summary(pl.UTF-8):	Przykłady do biblioteki Qt5 WebSockets
 Group:		X11/Development/Libraries
-%if "%{_rpmversion}" >= "5"
-BuildArch:	noarch
-%endif
+%{?noarchpackage}
 
 %description examples
 Qt5 WebSockets examples.
@@ -145,6 +138,7 @@ cd ..
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	INSTALL_ROOT=$RPM_BUILD_ROOT
 
@@ -218,6 +212,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{qt5dir}/qml/Qt/WebSockets
 %{qt5dir}/qml/Qt/WebSockets/qmldir
 %dir %{qt5dir}/qml/QtWebSockets
+# R: Core Network Qml WebSockets
 %attr(755,root,root) %{qt5dir}/qml/QtWebSockets/libdeclarative_qmlwebsockets.so
 %{qt5dir}/qml/QtWebSockets/plugins.qmltypes
 %{qt5dir}/qml/QtWebSockets/qmldir
