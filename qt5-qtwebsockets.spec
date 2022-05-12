@@ -31,7 +31,7 @@ BuildRequires:	qt5-build >= %{qtbase_ver}
 %{?with_qm:BuildRequires:	qt5-linguist >= 5.2}
 BuildRequires:	qt5-qmake >= %{qtbase_ver}
 BuildRequires:	rpm-build >= 4.6
-BuildRequires:	rpmbuild(macros) >= 1.654
+BuildRequires:	rpmbuild(macros) >= 2.016
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -126,13 +126,13 @@ Przykłady do biblioteki Qt5 WebSockets.
 %setup -q -n %{orgname}-everywhere-src-%{version} %{?with_qm:-a1}
 
 %build
-qmake-qt5
+%{qmake_qt5}
 %{__make}
 %{?with_doc:%{__make} docs}
 
 %if %{with qm}
 cd qttranslations-everywhere-src-%{version}
-qmake-qt5
+%{qmake_qt5}
 %{__make}
 cd ..
 %endif
