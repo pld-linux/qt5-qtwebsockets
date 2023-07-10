@@ -58,7 +58,7 @@ Ten pakiet zawiera bibliotekę Qt5 WebSockets.
 Summary:	The Qt5 WebSockets library
 Summary(pl.UTF-8):	Biblioteka Qt5 WebSockets
 Group:		Libraries
-Requires:	Qt5Core >= %{qtbase_ver}
+%requires_eq_to	Qt5Core Qt5Core-devel
 Requires:	Qt5Network >= %{qtbase_ver}
 # for qml module
 Requires:	Qt5Qml >= %{qtdeclarative_ver}
