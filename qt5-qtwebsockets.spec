@@ -10,14 +10,14 @@
 Summary:	The Qt5 WebSockets library
 Summary(pl.UTF-8):	Biblioteka Qt5 WebSockets
 Name:		qt5-%{orgname}
-Version:	5.15.13
+Version:	5.15.14
 Release:	1
 License:	LGPL v3 or GPL v2 or GPL v3 or commercial
 Group:		X11/Libraries
 Source0:	https://download.qt.io/official_releases/qt/5.15/%{version}/submodules/%{orgname}-everywhere-opensource-src-%{version}.tar.xz
-# Source0-md5:	338d3792fa514fcb61613d6d5de080c2
+# Source0-md5:	933d25effe0d789e06c8deab0b67891c
 Source1:	https://download.qt.io/official_releases/qt/5.15/%{version}/submodules/qttranslations-everywhere-opensource-src-%{version}.tar.xz
-# Source1-md5:	a7fe34c317fbba74a9f97c36679fec47
+# Source1-md5:	6f4f2fdf3466f8bc97a074258f124c13
 URL:		https://www.qt.io/
 BuildRequires:	Qt5Core-devel >= %{qtbase_ver}
 BuildRequires:	Qt5Network-devel >= %{qtbase_ver}
